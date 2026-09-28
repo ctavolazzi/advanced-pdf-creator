@@ -32,7 +32,44 @@
         "role": "Katkıda Bulunan",
         "github": "https://github.com/CyberFantics"
       }
-    ]
+    ],
+    "ui": {
+      "menu": "Menü Seçimi",
+      "document_name": "Belge İsmi",
+      "pdf_content": "PDF İçeriği",
+      "font": "Yazı Tipi",
+      "font_size": "Yazı Boyutu",
+      "font_style": "Yazı Stili",
+      "style_normal": "Normal",
+      "style_bold": "Kalın",
+      "style_italic": "İtalik",
+      "text_color": "Metin Rengi",
+      "entry_count": "Metin giriş sayısını belirtin:",
+      "entry": "Metin Girişi {n}",
+      "image_upload": "PDF'ye eklemek için bir görsel yükleyin",
+      "image_width": "Görsel Genişliği",
+      "image_x": "Görsel X Pozisyonu",
+      "table_intro": "PDF'ye tablo eklemek için veri girin:",
+      "cell": "Satır {row}, Sütun {col}",
+      "table_style": "Tablo Çizgi Stili",
+      "border": "Kenarlıklı",
+      "no_border": "Kenarlıksız",
+      "create_pdf": "PDF Oluştur",
+      "created": "PDF oluşturuldu! İndirmeden önce aşağıdan önizleyin:",
+      "download": "📥 PDF İndir",
+      "need_text": "Lütfen en az bir metin girin!",
+      "draft_saved": "Taslak kaydedildi.",
+      "draft_found": "Kaydedilmiş bir taslak var.",
+      "draft_restore": "Taslağı geri yükle",
+      "feedback_options": [
+        "Mükemmel",
+        "İyi",
+        "Orta",
+        "Kötü"
+      ],
+      "feedback_answer": "'{question}' için geri bildiriminiz: {answer}",
+      "photo_missing": "Geliştirici fotoğrafı bulunamadı."
+    }
   },
   "English": {
     "project_title": "📄 About the Project",
@@ -67,6 +104,43 @@
         "role": "Contributor",
         "github": "https://github.com/CyberFantics"
       }
-    ]
+    ],
+    "ui": {
+      "menu": "Menu",
+      "document_name": "Document name",
+      "pdf_content": "PDF content",
+      "font": "Font",
+      "font_size": "Font size",
+      "font_style": "Font style",
+      "style_normal": "Normal",
+      "style_bold": "Bold",
+      "style_italic": "Italic",
+      "text_color": "Text color",
+      "entry_count": "How many extra text lines?",
+      "entry": "Text line {n}",
+      "image_upload": "Upload an image to add to the PDF",
+      "image_width": "Image width",
+      "image_x": "Image X position",
+      "table_intro": "Enter data to add a table to the PDF:",
+      "cell": "Row {row}, Column {col}",
+      "table_style": "Table line style",
+      "border": "Border",
+      "no_border": "No border",
+      "create_pdf": "Create PDF",
+      "created": "PDF created! Preview it below before you download it:",
+      "download": "📥 Download PDF",
+      "need_text": "Please enter some text first!",
+      "draft_saved": "Draft saved.",
+      "draft_found": "There is a saved draft.",
+      "draft_restore": "Restore draft",
+      "feedback_options": [
+        "Excellent",
+        "Good",
+        "Average",
+        "Poor"
+      ],
+      "feedback_answer": "Your feedback for '{question}': {answer}",
+      "photo_missing": "Developer photo not found."
+    }
   }
 }

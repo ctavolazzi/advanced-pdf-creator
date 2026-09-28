@@ -1,1 +1,3 @@
-fpdf
+streamlit>=1.40
+fpdf2>=2.8
+pillow>=10
