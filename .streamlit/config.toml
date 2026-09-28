@@ -1,0 +1,11 @@
+# The dark look the original CSS was reaching for (a #1c2833 page, sky blue accents),
+# set as a theme so it survives Streamlit updates.
+[theme]
+base = "dark"
+primaryColor = "#87CEEB"
+backgroundColor = "#1c2833"
+secondaryBackgroundColor = "#243447"
+textColor = "#E8EDF2"
+
+[browser]
+gatherUsageStats = false

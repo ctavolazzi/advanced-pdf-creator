@@ -10,6 +10,51 @@ The **Advanced PDF Creator Application** is a powerful, user-friendly tool that 
 
 ---
 
+## 🆕 What's new in this fork
+
+This fork of [Pınar Topuz's original project](https://github.com/ThecoderPinar) fixes what a
+first-time user runs into and adds a Markdown guide builder. The original credits, contact page
+and MIT license are unchanged.
+
+**Fixed**
+
+- `requirements.txt` listed only `fpdf`, so a fresh install had neither Streamlit nor Pillow
+  and the app could not start. It now lists Streamlit, fpdf2 (the maintained successor of
+  PyFPDF) and Pillow.
+- Text was white by default, so the first PDF anyone made looked blank. It is black now.
+- Choosing English only translated the page descriptions: every control stayed Turkish. All
+  labels, buttons and messages now come from `data/languages.json` in both languages.
+- The big "PDF content" box never reached the PDF. It is now the body of the document, with the
+  document name as its title and as the file name.
+- An empty table grid was added to every PDF, and the "Table line style" choice was ignored.
+- The draft was saved (and an empty draft written over the real one) on every click. It is now
+  saved only when the text changes, and a saved draft can be restored.
+- PDFs and uploaded images are handled in memory instead of `output.pdf` and `temp_image.png`
+  in the working folder, which two people using the app at once would overwrite.
+- The dark look the original CSS aimed for no longer applied in current Streamlit, which left
+  light grey text on white. It is now a Streamlit theme in `.streamlit/config.toml`.
+
+**Added**
+
+- `guide_builder.py`: Markdown in, a designed PDF guide out (a cover, contents page, chapters,
+  tip boxes, prompt cards, code blocks, checklists and tables, on A5 pages that read well on a
+  phone). Use it from the new **Markdown to PDF Guide** page or the command line:
+
+  ```bash
+  python guide_builder.py guides/claude-code-starter.md -o guides/claude-code-starter-guide.pdf
+  ```
+
+- `guides/claude-code-starter.md`, a free beginner's guide to Claude Code built with it
+  (`guides/claude-code-starter-guide.pdf`).
+- Real tests in `tests/`, including the Streamlit app driven headless with Streamlit's
+  `AppTest`.
+
+The features list below describes the original project's goals. What exists today is the
+Streamlit app (`app.py`) and the two modules it uses (`pdf_generator.py`, `guide_builder.py`);
+there is no REST API or authentication layer.
+
+---
+
 ## 📋 Table of Contents
 
 1. [Features](#-features)
@@ -81,7 +126,7 @@ To set up the project locally, follow these steps:
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/username/advanced-pdf-creator.git
+   git clone https://github.com/ctavolazzi/advanced-pdf-creator.git
    cd advanced-pdf-creator
    ```
 2. **Create a Virtual Environment:**
@@ -159,9 +204,11 @@ Quality is paramount to the success of this project. To ensure a reliable and ro
   End-to-end tests simulate user behavior to ensure a seamless user experience from start to finish. These tests are implemented using **Selenium** to automate and mimic user interactions with the application interface.
 
 ### Run Tests
-To run all tests, use the following command in your terminal:
+The tests use pymupdf to read the PDFs back. Install the development requirements, then run
+pytest from the project folder:
 
 ```bash
+pip install -r requirements-dev.txt
 pytest
 ```
 
