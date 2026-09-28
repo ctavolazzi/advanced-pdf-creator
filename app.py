@@ -4,10 +4,12 @@ import os, json
 import streamlit as st
 from PIL import Image
 
+from guide_builder import build_guide, split_front_matter
 from pdf_generator import PDFGenerator, hex_to_rgb, safe_filename
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DRAFT_DIR = os.environ.get("PDF_CREATOR_DRAFTS", os.path.join(HERE, "drafts"))
+SAMPLE_GUIDE = os.path.join(HERE, "guides", "claude-code-starter.md")
 
 # Function to load data from JSON file
 def load_language_data(file_path):
@@ -159,11 +161,36 @@ def pdf_creator_page():
         else:
             st.warning(ui["need_text"])
 
+def guide_builder_page():
+    st.title(text["guide_builder"])
+    st.write(text["guide_builder_details"])
+
+    if st.button(ui["load_sample"]):
+        with open(SAMPLE_GUIDE, encoding="utf-8") as f:
+            st.session_state["guide_md"] = f.read()
+    markdown = st.text_area(ui["markdown"], key="guide_md", height=360)
+    page_size = st.selectbox(ui["page_size"], ["A5", "A4", "Letter"])
+
+    if st.button(ui["build_guide"]):
+        if markdown.strip():
+            pdf_bytes, pages = build_guide(markdown, page_size=page_size, base_dir=os.path.dirname(SAMPLE_GUIDE))
+            st.success(ui["guide_ready"].format(pages=pages))
+            show_pdf(pdf_bytes)
+            title = split_front_matter(markdown)[0].get("title", "guide").replace("|", " ")
+            st.download_button(
+                label=ui["download_guide"],
+                data=pdf_bytes,
+                file_name=safe_filename(title, "guide"),
+                mime="application/pdf"
+            )
+        else:
+            st.warning(ui["need_markdown"])
+
 # Streamlit arayüzü
 def main():
     # Menü Yapısı
-    menu = [text["project_title"], text["pdf_creator"], text["system_info_title"], text["feedback"],
-            text["contact_title"]]
+    menu = [text["project_title"], text["pdf_creator"], text["guide_builder"], text["system_info_title"],
+            text["feedback"], text["contact_title"]]
     choice = st.sidebar.selectbox(ui["menu"], menu)
 
     if choice == text["project_title"]:
@@ -173,6 +200,9 @@ def main():
 
     elif choice == text["pdf_creator"]:
         pdf_creator_page()
+
+    elif choice == text["guide_builder"]:
+        guide_builder_page()
 
     elif choice == text["system_info_title"]:
         st.title(text["system_info_title"])

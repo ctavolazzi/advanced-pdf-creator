@@ -33,6 +33,8 @@
         "github": "https://github.com/CyberFantics"
       }
     ],
+    "guide_builder": "📘 Markdown'dan PDF Rehberi",
+    "guide_builder_details": "Rehberinizi Markdown ile yazın; kapak, içindekiler, bölümler, ipucu kutuları ve tablolarla tasarlanmış bir PDF'ye dönüşsün. A5 sayfalar telefonda rahat okunur ve yazdırılabilir.",
     "ui": {
       "menu": "Menü Seçimi",
       "document_name": "Belge İsmi",
@@ -61,6 +63,13 @@
       "draft_saved": "Taslak kaydedildi.",
       "draft_found": "Kaydedilmiş bir taslak var.",
       "draft_restore": "Taslağı geri yükle",
+      "markdown": "Markdown metni",
+      "load_sample": "Örnek rehberi yükle",
+      "page_size": "Sayfa boyutu",
+      "build_guide": "Rehberi oluştur",
+      "guide_ready": "Rehber hazır: {pages} sayfa.",
+      "download_guide": "📥 Rehberi indir",
+      "need_markdown": "Önce biraz Markdown yazın ya da örnek rehberi yükleyin.",
       "feedback_options": [
         "Mükemmel",
         "İyi",
@@ -105,6 +114,8 @@
         "github": "https://github.com/CyberFantics"
       }
     ],
+    "guide_builder": "📘 Markdown to PDF Guide",
+    "guide_builder_details": "Write your guide in Markdown and get a designed PDF back: a cover, a contents page, chapters, tip boxes, prompt cards and tables. A5 pages read well on a phone and still print.",
     "ui": {
       "menu": "Menu",
       "document_name": "Document name",
@@ -133,6 +144,13 @@
       "draft_saved": "Draft saved.",
       "draft_found": "There is a saved draft.",
       "draft_restore": "Restore draft",
+      "markdown": "Markdown",
+      "load_sample": "Load the sample guide",
+      "page_size": "Page size",
+      "build_guide": "Build the guide",
+      "guide_ready": "Your guide is ready: {pages} pages.",
+      "download_guide": "📥 Download the guide",
+      "need_markdown": "Write some Markdown first, or load the sample guide.",
       "feedback_options": [
         "Excellent",
         "Good",

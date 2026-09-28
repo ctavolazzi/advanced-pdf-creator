@@ -52,3 +52,11 @@ def test_nothing_to_print_gives_a_warning(app):
     open_page(app, EN["pdf_creator"])
     next(b for b in app.button if b.label == EN["ui"]["create_pdf"]).click().run()
     assert [w.value for w in app.warning] == [EN["ui"]["need_text"]]
+
+
+def test_guide_builder_builds_the_sample(app):
+    open_page(app, EN["guide_builder"])
+    next(b for b in app.button if b.label == EN["ui"]["load_sample"]).click().run()
+    assert app.text_area(key="guide_md").value.startswith("---")
+    next(b for b in app.button if b.label == EN["ui"]["build_guide"]).click().run()
+    assert app.success and app.success[0].value.startswith("Your guide is ready")
